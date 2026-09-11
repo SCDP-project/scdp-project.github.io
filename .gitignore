@@ -1,0 +1,8 @@
+# Source recordings stay local; publish the optimized copies under static/videos/scdp/.
+/video/
+/videos/
+
+# Local exports and incomplete encodes.
+/dist/
+*.partial.mp4
+__pycache__/
