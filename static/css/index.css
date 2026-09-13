@@ -518,50 +518,6 @@ h1 {
 .video-card figcaption {
   padding: 20px 22px 22px;
 }
-.video-caption-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 12px;
-}
-.video-variants {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-}
-.video-variant-status {
-  color: var(--muted);
-  font-size: 11px;
-  white-space: nowrap;
-}
-.video-variant-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--accent);
-}
-.video-variant-toggle:hover {
-  border-color: var(--accent);
-  background: var(--pale);
-}
-.video-variant-toggle svg {
-  width: 20px;
-  height: 20px;
-}
-.video-card[data-active-variant="live"] .video-variant-toggle svg {
-  transform: rotate(180deg);
-}
-.video-card[data-active-variant="live"] .video-variant-status {
-  color: var(--accent-dark);
-}
 .video-card figcaption p {
   font-size: 13px;
   color: var(--muted);
@@ -1168,15 +1124,6 @@ h1 {
   }
 }
 @media (max-width: 520px) {
-  .video-caption-heading h4 {
-    font-size: 17px;
-  }
-  .video-variant-status {
-    font-size: 10px;
-  }
-  .video-variants {
-    gap: 6px;
-  }
   .method-steps > div {
     padding: 22px;
   }

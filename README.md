@@ -25,13 +25,13 @@ python -m http.server 8085 --bind 127.0.0.1
 7. Humanoid: Separating Paper Cup / Erasing White Board
 8. BibTeX와 복사 버튼
 
-현재 `video/`의 영상 13개를 연결했습니다. USB Insertion과 Battery Insertion 제목 오른쪽의 `>` 버튼으로 각 Live (1×) 영상으로 전환하며, `<` 버튼으로 기본 데모로 돌아옵니다. 제목의 **S·C·D·P**와 **Single RGB Camera**를 파란색으로 강조합니다.
+현재 `video/`의 영상 11개를 연결했습니다. USB Insertion은 4×, Battery Insertion은 2× 데모를 표시합니다. 제목의 **S·C·D·P**와 **Single RGB Camera**를 파란색으로 강조합니다.
 
 ## 수정할 파일
 
 - `index.html`: 제목, 저자, 설명, 영상 배치, 논문 링크, 인용
 - `static/css/index.css`: 색상, 타이포그래피, 데스크톱/모바일 레이아웃
-- `static/js/index.js`: USB/Battery Live 영상 전환, 화면에 보이는 영상의 자동 재생, BibTeX 복사
+- `static/js/index.js`: 화면에 보이는 영상의 자동 재생, BibTeX 복사
 - `video/`: 제공한 원본 영상 (실제 폴더명은 `videos/`가 아닌 `video/`)
 - `static/videos/scdp/`: 페이지에서 재생하는 웹용 MP4
 - `static/images/scdp/`: 영상 썸네일, 논문 Figure 2, 프로젝트 파비콘
@@ -53,7 +53,7 @@ python scripts/prepare_videos.py
 python scripts/prepare_videos.py --source videos
 ```
 
-MP4와 MOV 원본(대소문자 구분 없음)을 보존하면서 720p H.264 MP4 영상과 포스터를 만듭니다. HDR 영상은 SDR로 톤 매핑해 일반 브라우저에서도 색상이 자연스럽게 보이도록 변환합니다. 같은 파일명의 MP4와 MOV를 함께 넣으면 출력 충돌을 방지하기 위해 오류를 표시합니다. 웹용 영상은 무음이며, 재생 시작을 빠르게 하는 `faststart` 옵션을 사용합니다. 파일명에 표시된 배속(1×/2×/4×)은 이미 영상에 적용되어 있으므로 브라우저에서는 추가로 가속하지 않습니다. 새 파일을 추가하면 `index.html`에도 해당 영상과 설명을 추가합니다. 파일을 삭제하거나 이름을 변경하면 페이지의 영상 경로·배속·Live 영상 선택 버튼을 함께 갱신하고, 더 이상 참조하지 않는 웹용 영상과 포스터도 제거합니다.
+MP4와 MOV 원본(대소문자 구분 없음)을 보존하면서 720p H.264 MP4 영상과 포스터를 만듭니다. HDR 영상은 SDR로 톤 매핑해 일반 브라우저에서도 색상이 자연스럽게 보이도록 변환합니다. 같은 파일명의 MP4와 MOV를 함께 넣으면 출력 충돌을 방지하기 위해 오류를 표시합니다. 웹용 영상은 무음이며, 재생 시작을 빠르게 하는 `faststart` 옵션을 사용합니다. 파일명에 표시된 배속(1×/2×/4×)은 이미 영상에 적용되어 있으므로 브라우저에서는 추가로 가속하지 않습니다. 새 파일을 추가하면 `index.html`에도 해당 영상과 설명을 추가합니다. 파일을 삭제하거나 이름을 변경하면 페이지의 영상 경로·배속을 함께 갱신하고, 더 이상 참조하지 않는 웹용 영상과 포스터도 제거합니다.
 
 Paper Cup 영상은 로봇 크기를 White Board 영상에 맞추기 위해 약 1.33× 크롭을 적용합니다. 이 설정은 `scripts/prepare_videos.py`의 `CROP_FILTERS`에 있으며, 크롭 설정 변경 후에는 `--force`로 영상과 포스터를 다시 만들 수 있습니다.
 

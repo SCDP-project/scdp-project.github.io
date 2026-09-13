@@ -101,48 +101,6 @@
     syncPlayback();
   });
 
-  document.querySelectorAll(".video-card[data-live-video]").forEach((card) => {
-    const video = card.querySelector("video");
-    const button = card.querySelector(".video-variant-toggle");
-    const status = card.querySelector(".video-variant-status");
-    const badge = card.querySelector(".speed-badge");
-    const source = video.querySelector("source");
-    const fallback = video.querySelector("a");
-    const title = card.querySelector("h4").textContent.trim();
-    const demo = {
-      source: source.getAttribute("src"),
-      poster: video.getAttribute("poster"),
-      speed: badge.textContent,
-      fallback: fallback.textContent,
-    };
-    card.dataset.activeVariant = "demo";
-    card.querySelector(".video-variants").hidden = false;
-
-    button.addEventListener("click", () => {
-      const showLive = card.dataset.activeVariant !== "live";
-      pauseAutomatically(video);
-      manuallyPaused.delete(video);
-      card.dataset.activeVariant = showLive ? "live" : "demo";
-      source.src = showLive
-        ? `static/videos/scdp/${card.dataset.liveVideo}.mp4`
-        : demo.source;
-      video.poster = showLive
-        ? `static/images/scdp/${card.dataset.liveVideo}.jpg`
-        : demo.poster;
-      fallback.href = source.src;
-      fallback.textContent = showLive ? `Watch ${title} live.` : demo.fallback;
-      badge.textContent = showLive ? "Live · 1× speed" : demo.speed;
-      status.textContent = showLive ? "Live · 2 / 2" : "Demo · 1 / 2";
-      const nextLabel = showLive
-        ? `Show ${title} demo (${demo.speed})`
-        : `Show ${title} live video (1× speed)`;
-      button.setAttribute("aria-label", nextLabel);
-      button.title = nextLabel;
-      video.load();
-      if (!autoplayPaused && !document.hidden) tryPlay(video);
-    });
-  });
-
   const copyButton = document.querySelector("#copy-bibtex");
   copyButton.addEventListener("click", async () => {
     const code = document.querySelector("#bibtex-code");
