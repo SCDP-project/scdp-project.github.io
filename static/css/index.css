@@ -14,7 +14,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 24px;
   background: var(--white);
 }
 body {
@@ -51,7 +51,6 @@ a:hover {
 }
 button:focus-visible,
 a:focus-visible,
-summary:focus-visible,
 video:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 5px;
@@ -125,22 +124,6 @@ strong {
   top: 12px;
   color: #fff;
 }
-.site-header {
-  height: 70px;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgb(255 255 255 / 92%);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgb(224 231 241 / 75%);
-}
-.site-nav {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
 .wordmark {
   display: inline-flex;
   align-items: center;
@@ -169,27 +152,6 @@ strong {
 .site-footer .brand-image {
   width: 44px;
   height: 40px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  font-size: 13px;
-  font-weight: 550;
-}
-.nav-links a {
-  color: var(--muted);
-}
-.nav-links a:hover {
-  color: var(--accent);
-}
-.nav-links .nav-paper {
-  color: var(--ink);
-  border-left: 1px solid var(--line);
-  padding-left: 25px;
-}
-.nav-paper span {
-  margin-left: 8px;
 }
 .paper-hero {
   position: relative;
@@ -243,25 +205,13 @@ h1 {
   margin-top: 20px;
   color: #4b616d;
 }
-.acceptance-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 20px;
-  padding: 7px 14px;
-  border: 1px solid #d8e4ff;
-  border-radius: 999px;
-  background: rgb(239 245 255 / 85%);
-  color: var(--accent-dark);
-  box-shadow: 0 2px 6px rgb(37 99 235 / 3%);
-  font-size: 14px;
-  font-weight: 650;
+.conference-name {
+  margin-top: 24px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: 0.25px;
-}
-.acceptance-badge svg {
-  width: 15px;
-  height: 15px;
-  fill: currentColor;
 }
 .authors {
   display: flex;
@@ -296,7 +246,7 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
   margin-top: 28px;
   padding-bottom: 19px;
 }
@@ -304,42 +254,38 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-width: 136px;
-  min-height: 48px;
-  padding: 12px 22px;
-  border: 1px solid #dce4f0;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--ink);
-  box-shadow:
-    0 2px 3px rgb(25 38 62 / 3%),
-    0 6px 16px rgb(25 38 62 / 4%);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
-  transition:
-    transform 0.18s,
-    box-shadow 0.18s,
-    border-color 0.18s,
-    background 0.18s;
-}
-.resource-button:hover {
-  transform: translateY(-2px);
-  border-color: #b4c8ec;
-  background: #fbfcff;
-  color: var(--accent-dark);
-  box-shadow: 0 5px 16px rgb(37 99 235 / 12%);
-}
-.resource-button.primary {
-  border-color: transparent;
-  background: linear-gradient(135deg, #2563eb, #365bda);
+  gap: 8px;
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: #1e293b;
   color: #fff;
-  box-shadow: 0 4px 12px rgb(37 99 235 / 22%);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
-.resource-button.primary:hover {
-  background: linear-gradient(135deg, #1d4ed8, #2f4ec4);
-  box-shadow: 0 7px 20px rgb(37 99 235 / 25%);
+.resource-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--accent);
+  color: #fff;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+}
+.resource-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
 }
 .resource-button .github-icon,
 .resource-button .youtube-icon {
@@ -349,11 +295,10 @@ h1 {
   stroke: none;
 }
 .resource-button .youtube-icon {
-  color: #dc4141;
   width: 23px;
 }
 .youtube-icon .play-cutout {
-  fill: #fff;
+  fill: #475569;
 }
 .resource-pending {
   position: relative;
@@ -370,10 +315,9 @@ h1 {
   white-space: nowrap;
 }
 .resource-button:disabled {
-  color: #718097;
-  border-color: #e2e7ef;
-  background: #fbfcfe;
-  box-shadow: 0 2px 3px rgb(25 38 62 / 2%);
+  color: #fff;
+  background: #475569;
+  box-shadow: none;
   cursor: default;
   transform: none;
 }
@@ -670,38 +614,18 @@ h1 {
   margin-top: 11px;
   line-height: 1.8;
 }
-.abstract {
-  border-block: 1px solid #dbe7e7;
-  margin-top: 40px;
+.abstract-section {
+  max-width: 860px;
+  padding-block: 8px 64px;
 }
-.abstract summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 550;
-  padding: 18px 0;
-  color: var(--ink);
+.abstract-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
 }
-.abstract summary::-webkit-details-marker {
-  display: none;
-}
-.abstract summary span {
-  font-size: 22px;
-  color: var(--accent);
-  line-height: 1;
-  transition: transform 0.18s;
-}
-.abstract[open] summary span {
-  transform: rotate(45deg);
-}
-.abstract p {
-  padding-bottom: 22px;
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--muted);
+.abstract-section p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #4b5c73;
 }
 .citation-section {
   padding-block: 72px 50px;
@@ -791,16 +715,6 @@ h1 {
   .page-width {
     width: calc(100% - 36px);
   }
-  .site-header {
-    height: 60px;
-  }
-  .nav-links {
-    gap: 18px;
-    font-size: 11px;
-  }
-  .nav-links .nav-paper {
-    padding-left: 16px;
-  }
   .wordmark-year {
     display: none;
   }
@@ -826,6 +740,12 @@ h1 {
   }
   .resource-links {
     margin-top: 20px;
+  }
+  .abstract-section {
+    padding-bottom: 46px;
+  }
+  .abstract-section p {
+    font-size: 15px;
   }
   .experiments-section,
   .method-section {
@@ -924,12 +844,6 @@ h1 {
   }
 }
 @media (max-width: 520px) {
-  .nav-links {
-    gap: 14px;
-  }
-  .nav-links .nav-paper {
-    display: none;
-  }
   .wordmark {
     font-size: 18px;
   }
@@ -1071,9 +985,6 @@ h1 {
   .architecture figcaption {
     font-size: 9px;
     margin-top: 12px;
-  }
-  .abstract p {
-    font-size: 13px;
   }
   .copy-button {
     font-size: 11px;
