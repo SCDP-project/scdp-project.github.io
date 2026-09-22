@@ -713,11 +713,6 @@ h1 {
 .simulation-source {
   margin-top: 16px;
 }
-.simulation-source a {
-  margin-left: 6px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 .abstract-section {
   max-width: 860px;
   padding-block: 8px 64px;
