@@ -60,7 +60,7 @@
       href="static/images/scdp/gripper-icon-192.png?v=2"
     />
     <link rel="stylesheet" href="static/css/bulma.min.css" />
-    <link rel="stylesheet" href="static/css/index.css?v=dfdeeddde168" />
+    <link rel="stylesheet" href="static/css/index.css?v=de69c99bff96" />
     <script defer src="static/js/index.js"></script>
   </head>
   <body>
@@ -207,9 +207,7 @@
                 alt="SCDP architecture: a single RGB image is encoded into multi-scale feature maps. Reconstructed end-effector trajectories query local visual features, which condition successive action denoising steps."
                 loading="lazy"
             /></a>
-            <figcaption>
-              SCDP architecture
-            </figcaption>
+            <figcaption>SCDP architecture</figcaption>
           </figure>
           <div class="method-steps">
             <div>
@@ -243,6 +241,90 @@
         </div>
       </section>
       <section
+        class="simulation-section page-width"
+        id="simulation"
+        aria-labelledby="simulation-title"
+      >
+        <p class="eyebrow">In simulation</p>
+        <h2 id="simulation-title">Simulation at a glance</h2>
+        <p class="section-intro">
+          Over 80% success across all Meta-World difficulty groups with a single
+          RGB camera.
+        </p>
+        <div class="simulation-grid">
+          <figure class="simulation-panel">
+            <figcaption>
+              <h3>Across task difficulty</h3>
+              <p>Meta-World · Success (%) ↑</p>
+            </figcaption>
+            <picture>
+              <source
+                media="(max-width: 520px)"
+                srcset="static/images/scdp/simulation-success-mobile.svg"
+                width="380"
+                height="280"
+              />
+              <img
+                class="simulation-chart"
+                src="static/images/scdp/simulation-success.svg"
+                width="620"
+                height="280"
+                alt="Meta-World success rates (Easy, Medium, Hard, Very Hard): DP 79.9, 36.1, 16.7, 46.0%; DP3 92.3, 78.5, 60.3, 82.7%; SCDP 91.5, 83.0, 82.5, 89.7%."
+                loading="lazy"
+              />
+            </picture>
+          </figure>
+          <div class="simulation-panel">
+            <table class="simulation-table">
+              <caption>
+                <span class="simulation-panel-title"
+                  >Single-view competitiveness</span
+                >
+                <span class="simulation-panel-subtitle"
+                  >Meta-World Hard · 6 tasks</span
+                >
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Camera setting</th>
+                  <th scope="col">Success (%) ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">DP</th>
+                  <td>+ Wrist RGB</td>
+                  <td>74.2 <span>± 29.4</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">DP3</th>
+                  <td>Depth</td>
+                  <td>60.3 <span>± 38.0</span></td>
+                </tr>
+                <tr class="simulation-ours">
+                  <th scope="row">SCDP</th>
+                  <td>Single RGB</td>
+                  <td><strong>82.5</strong> <span>± 11.5</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="simulation-table-note">
+              Mean ± standard deviation across the 6 tasks.
+            </p>
+          </div>
+        </div>
+        <p class="simulation-source">
+          20 demonstrations per task · 3 seeds · Best-checkpoint success.
+          <a
+            href="https://arxiv.org/pdf/2606.14535v1#page=5"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Tables 1 &amp; 3 in the paper <span aria-hidden="true">↗</span></a
+          >
+        </p>
+      </section>
+      <section
         class="experiments-section"
         id="experiments"
         aria-labelledby="experiments-title"
@@ -250,7 +332,7 @@
         <div class="page-width">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">See it in action</p>
+              <p class="eyebrow">Experiments</p>
               <h2 id="experiments-title">Real-world experiments</h2>
             </div>
             <button class="playback-toggle" type="button" aria-pressed="false">
@@ -697,8 +779,7 @@
             </figcaption>
           </figure>
         </div>
-        <p class="section-note">
-        </p>
+        <p class="section-note"></p>
       </section>
 
       <section
