@@ -19,12 +19,13 @@ python -m http.server 8085 --bind 127.0.0.1
 1. 논문 제목, 저자, 소속, Paper / Video / Code 버튼
 2. Abstract: 본문 첫 섹션에 초록 전문 표시
 3. Method: 논문 아키텍처 그림, 방법 설명
-4. Precision at the point of contact: USB Insertion / Battery Insertion
-5. Distractor Robustness: USB Insertion w/ Distractors / Battery Insertion w/ Distractors
-6. Long Horizon: 서랍 열기 → 바나나 집기 → 넣기 → 서랍 닫기 (2× 영상)
-7. More Experiments: Cup Handle Grasping / Cup Handle Grasping w/ Distractors / Cup Wall Grasping / Push Cube w/ Distractors
-8. Humanoid: Separating Paper Cup / Erasing White Board
-9. BibTeX와 복사 버튼
+4. Simulation at a glance: Meta-World 난이도별 성공률 그래프와 Hard 6개 과제의 카메라 구성 비교 표
+5. Precision at the point of contact: USB Insertion / Battery Insertion
+6. Distractor Robustness: USB Insertion w/ Distractors / Battery Insertion w/ Distractors
+7. Long Horizon: 서랍 열기 → 바나나 집기 → 넣기 → 서랍 닫기 (2× 영상)
+8. More Experiments: Cup Handle Grasping / Cup Handle Grasping w/ Distractors / Cup Wall Grasping / Push Cube w/ Distractors
+9. Humanoid: Separating Paper Cup / Erasing White Board
+10. BibTeX와 복사 버튼
 
 현재 `video/`의 영상 11개를 연결했습니다. USB Insertion은 4×, Battery Insertion은 2× 데모를 표시합니다. 제목의 **S·C·D·P**와 **Single RGB Camera**를 파란색으로 강조합니다.
 
@@ -39,6 +40,18 @@ python -m http.server 8085 --bind 127.0.0.1
 - `static/images/scdp/gripper-logo.png`: `video/IMG_7031.JPEG`에서 그리퍼·USB와 주변 distractor(바나나, 딸기, 테이프, 배터리), USB 허브까지 넓게 추출한 투명 PNG 로고. 하단 로고와 `gripper-icon-*`, `gripper-favicon.ico` 탭 아이콘으로 활용합니다.
 
 정적 HTML/CSS/JS와 상대경로로 구성되어 GitHub Pages의 저장소 하위 경로에서도 사용할 수 있습니다. jQuery나 외부 CDN 없이 동작합니다. 배포 주소는 https://scdp-project.github.io/이며, 저장소는 https://github.com/SCDP-project/scdp-project.github.io 입니다. 원본 영상은 `.gitignore`로 제외하고 웹용 영상만 업로드합니다.
+
+## 시뮬레이션 그래프
+
+Method 바로 다음의 `#simulation`에서 확인할 수 있습니다: http://localhost:8085/#simulation
+
+그래프는 논문 v1 Table 1의 Meta-World 난이도별 수치, 표는 Table 3의 Hard 6개 과제 결과를 사용합니다. 표의 ±는 과제 간 표준편차이며, seed 간 오차가 아닙니다. Meta-World 평가 조건은 과제당 시연 20개, 3개 seed, best-checkpoint 성공률입니다. Table 1의 전체 54-task 평균은 세부 과제 수치의 가중 평균과 일치하지 않아 사용하지 않았습니다.
+
+그래프는 정적 SVG이므로 페이지 실행 시 추가 의존성이 없습니다. 수치를 수정한 뒤 그래프를 다시 생성할 때만 Python의 `matplotlib`이 필요합니다.
+
+```bash
+python scripts/plot_simulation.py
+```
 
 ## 영상 갱신
 
