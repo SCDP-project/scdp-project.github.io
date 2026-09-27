@@ -101,36 +101,6 @@
     syncPlayback();
   });
 
-  const featured = document.querySelector("#featured-video");
-  const choices = [...document.querySelectorAll(".demo-choice")];
-  choices.forEach((choice) =>
-    choice.addEventListener("click", () => {
-      if (choice.getAttribute("aria-pressed") === "true") return;
-      choices.forEach((item) => {
-        const selected = item === choice;
-        item.classList.toggle("is-active", selected);
-        item.setAttribute("aria-pressed", String(selected));
-      });
-      const { video, label, speed, caption } = choice.dataset;
-      pauseAutomatically(featured);
-      manuallyPaused.delete(featured);
-      featured.poster = `static/images/scdp/${video}.jpg`;
-      const path = `static/videos/scdp/${video}.mp4`;
-      featured.querySelector("source").src = path;
-      featured.querySelector("a").href = path;
-      featured.querySelector("a").textContent = `Watch ${label.toLowerCase()}.`;
-      featured.setAttribute(
-        "aria-label",
-        `Featured demonstration: ${label}, ${speed}`,
-      );
-      document.querySelector("#featured-label").textContent = label;
-      document.querySelector("#featured-speed").textContent = speed;
-      document.querySelector("#featured-caption").textContent = caption;
-      featured.load();
-      if (!autoplayPaused && !document.hidden) tryPlay(featured);
-    }),
-  );
-
   document.querySelectorAll(".video-card[data-live-video]").forEach((card) => {
     const video = card.querySelector("video");
     const button = card.querySelector(".video-variant-toggle");
