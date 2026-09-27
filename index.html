@@ -60,35 +60,11 @@
       href="static/images/scdp/gripper-icon-192.png?v=2"
     />
     <link rel="stylesheet" href="static/css/bulma.min.css" />
-    <link rel="stylesheet" href="static/css/index.css?v=dd36d3b0e223" />
+    <link rel="stylesheet" href="static/css/index.css?v=dfdeeddde168" />
     <script defer src="static/js/index.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <nav class="page-width site-nav" aria-label="Main navigation">
-        <a class="wordmark" href="#top" aria-label="SCDP home"
-          ><img
-            class="brand-image"
-            src="static/images/scdp/gripper-logo.png?v=2"
-            width="64"
-            height="58"
-            alt=""
-          />SCDP<span class="wordmark-year"> / 2026</span></a
-        >
-        <div class="nav-links">
-          <a href="#method">Method</a><a href="#experiments">Experiments</a
-          ><a href="#bibtex">BibTeX</a
-          ><a
-            class="nav-paper"
-            href="https://arxiv.org/abs/2606.14535"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Paper <span aria-hidden="true">↗</span></a
-          >
-        </div>
-      </nav>
-    </header>
     <main id="main">
       <section
         class="paper-hero page-width"
@@ -114,13 +90,7 @@
           Learning Precise and Robust Manipulation with a
           <strong class="camera-highlight">Single RGB Camera</strong>
         </p>
-        <p class="acceptance-badge">
-          <svg viewBox="0 0 20 20" aria-hidden="true">
-            <path
-              d="m10 2 2.2 4.5 5 .7-3.6 3.5.8 5-4.4-2.3-4.4 2.3.8-5L2.8 7.2l5-.7Z"
-            /></svg
-          >CoRL 2026 Accepted!
-        </p>
+        <p class="conference-name">CoRL 2026</p>
         <!-- Names, affiliations, and equal contribution follow the paper PDF title page. -->
         <div class="authors">
           <span>Seoyoon Kim<sup>1,*</sup></span
@@ -135,7 +105,7 @@
         <p class="contribution">* Equal contribution</p>
         <div class="resource-links" aria-label="Project resources">
           <a
-            class="resource-button primary"
+            class="resource-button"
             href="https://arxiv.org/pdf/2606.14535"
             target="_blank"
             rel="noopener noreferrer"
@@ -183,6 +153,36 @@
             <span>Code</span>
           </a>
         </div>
+      </section>
+      <section
+        class="abstract-section page-width"
+        id="abstract"
+        aria-labelledby="abstract-title"
+      >
+        <h2 id="abstract-title">Abstract</h2>
+        <p>
+          Recent visual imitation learning systems have widely adopted
+          multi-camera setups with wrist-mounted cameras as the de facto
+          standard. However, manipulation from a single global view remains
+          challenging, as the policy should capture fine-grained interaction
+          details and identify task-relevant regions without local wrist
+          views. To address this challenge, we present Spatially Conditioned
+          Diffusion Policy (SCDP), a diffusion-based visuomotor policy that
+          achieves precise and robust manipulation in a single-camera
+          setting. Our key idea is that end-effector trajectories can serve
+          as visual attention anchors that reflect task-relevant regions.
+          Building on this idea, SCDP consists of two key components: (i) a
+          visual encoder that produces multi-scale feature maps to capture
+          both broader context and fine-grained visual features, and (ii) a
+          spatial conditioning module that samples point-wise features along
+          intermediate end-effector trajectories in the diffusion loop.
+          Extensive simulation experiments show that SCDP consistently
+          outperforms strong single-view baselines and achieves performance
+          comparable to multi-camera baselines. Real-world experiments
+          further demonstrate precise manipulation and robustness to visual
+          distractors, highlighting the potential of single-camera imitation
+          learning.
+        </p>
       </section>
       <section
         class="method-section"
@@ -245,34 +245,6 @@
               </p>
             </div>
           </div>
-          <details class="abstract">
-            <summary>
-              Read the full abstract <span aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Recent visual imitation learning systems have widely adopted
-              multi-camera setups with wrist-mounted cameras as the de facto
-              standard. However, manipulation from a single global view remains
-              challenging, as the policy should capture fine-grained interaction
-              details and identify task-relevant regions without local wrist
-              views. To address this challenge, we present Spatially Conditioned
-              Diffusion Policy (SCDP), a diffusion-based visuomotor policy that
-              achieves precise and robust manipulation in a single-camera
-              setting. Our key idea is that end-effector trajectories can serve
-              as visual attention anchors that reflect task-relevant regions.
-              Building on this idea, SCDP consists of two key components: (i) a
-              visual encoder that produces multi-scale feature maps to capture
-              both broader context and fine-grained visual features, and (ii) a
-              spatial conditioning module that samples point-wise features along
-              intermediate end-effector trajectories in the diffusion loop.
-              Extensive simulation experiments show that SCDP consistently
-              outperforms strong single-view baselines and achieves performance
-              comparable to multi-camera baselines. Real-world experiments
-              further demonstrate precise manipulation and robustness to visual
-              distractors, highlighting the potential of single-camera imitation
-              learning.
-            </p>
-          </details>
         </div>
       </section>
       <section
