@@ -702,16 +702,12 @@ h1 {
   color: var(--accent-dark);
   border-bottom: 0;
 }
-.simulation-table-note,
-.simulation-source {
+.simulation-table-note {
   color: var(--muted);
   font-size: 11px;
 }
 .simulation-table-note {
   margin-top: 12px;
-}
-.simulation-source {
-  margin-top: 16px;
 }
 .abstract-section {
   max-width: 860px;
