@@ -79,7 +79,7 @@ Paper Cup 영상은 로봇 크기를 White Board 영상에 맞추기 위해 약 
 - `Young Jin Heo`는 PDF 표기를 따랐습니다. arXiv 메타데이터에는 `Yeong Jin Heo`로 표기되어 있어 최종 공개 시 선호 표기를 확인하면 됩니다.
 - 휴머노이드 영상은 arXiv v1 본문에 없으므로 추가 데모 섹션으로 소개했습니다. USB/배터리의 distractor 영상에도 논문에 없는 성공률 수치를 부여하지 않았습니다.
 - Code 버튼은 https://github.com/IRSL-robotics/SCDP 로 연결됩니다.
-- Video 버튼은 YouTube 주소가 정해지기 전까지 `Coming soon` 상태입니다. `index.html`의 `video-resource` 버튼을 링크로 바꾸고 `resource-note`를 제거하면 활성화할 수 있습니다.
+- Video 버튼은 https://youtu.be/PfSrRUp5z_k 로 연결됩니다.
 - Method는 논문 Figure 2의 Multi-Scale Image Encoder / Spatial Conditioning Module / Action Denoising Network 구성과 visual attention anchors 용어를 따릅니다.
 - 공유 이미지, canonical, `og:url`은 https://scdp-project.github.io/ 주소로 설정했습니다.
 - 템플릿의 기존 샘플 파일은 보존했지만 새 페이지에서는 참조하지 않습니다.
